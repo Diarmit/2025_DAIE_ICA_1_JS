@@ -1,0 +1,15 @@
+{
+  "hash": "e3aa71705c9fa36307c61ca8d23ddca6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"SQL\"\nauthor: \"JS\"\n---\nSQL\n\n::: {.cell}\n\n```{.r .cell-code}\nif(!require(\"tidyverse\"))\n  install.packages(\"tidyverse\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: tidyverse\n```\n\n\n:::\n\n::: {.cell-output .cell-output-stderr}\n\n```\n── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──\n✔ dplyr     1.1.4     ✔ readr     2.1.6\n✔ forcats   1.0.1     ✔ stringr   1.6.0\n✔ ggplot2   4.0.1     ✔ tibble    3.3.0\n✔ lubridate 1.9.4     ✔ tidyr     1.3.2\n✔ purrr     1.2.0     \n── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──\n✖ dplyr::filter() masks stats::filter()\n✖ dplyr::lag()    masks stats::lag()\nℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors\n```\n\n\n:::\n\n```{.r .cell-code}\n  library(tidyverse)\n\nif(!require(\"RSQLite\"))\n  install.packages(\"RSQLite\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: RSQLite\n```\n\n\n:::\n\n```{.r .cell-code}\n  library(RSQLite)\n\nif(!require(\"DBI\"))\n  install.packages(\"DBI\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: DBI\n```\n\n\n:::\n\n```{.r .cell-code}\n  library(DBI)\n\n# interactive plots\nif(!require(\"plotly\"))\n  install.packages(\"plotly\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: plotly\n\nAttaching package: 'plotly'\n\nThe following object is masked from 'package:ggplot2':\n\n    last_plot\n\nThe following object is masked from 'package:stats':\n\n    filter\n\nThe following object is masked from 'package:graphics':\n\n    layout\n```\n\n\n:::\n\n```{.r .cell-code}\nlibrary(plotly)\n\n# support for color blind users - see scale_color_colorblind() below\nif(!require(\"ggthemes\"))\n  install.packages(\"ggthemes\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: ggthemes\n```\n\n\n:::\n\n```{.r .cell-code}\nlibrary(ggthemes)\n\n# allows paginated tables\nif(!require(\"DT\"))\n  install.packages(\"DT\")\n```\n\n::: {.cell-output .cell-output-stderr}\n\n```\nLoading required package: DT\n```\n\n\n:::\n\n```{.r .cell-code}\nlibrary(DT)\n\nconn <- dbConnect(RSQLite::SQLite(), \"virtual_production.db\")\ndbListTables(conn)\n```\n\n::: {.cell-output .cell-output-stdout}\n\n```\n [1] \"Assets\"           \"Clients\"          \"CrewMembers\"      \"Environments\"    \n [5] \"Equipment\"        \"ProductionCrew\"   \"Productions\"      \"SessionEquipment\"\n [9] \"ShootingSessions\" \"VCamTakes\"       \n```\n\n\n:::\n:::\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

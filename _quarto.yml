@@ -3,6 +3,13 @@ project:
 
 website: 
   title: "2023 - Quarto Examples"
-
+  navbar: 
+    left:
+      - text: "SQL" 
+        href: SQL.qmd
+      - text: "Linear Regression"
+        href: linearregression.qmd
+      - text: "Technology Exploration"
+        href: technologyexploration.qmd
 
 
