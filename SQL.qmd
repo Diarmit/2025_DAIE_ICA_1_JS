@@ -50,3 +50,18 @@ result <- dbGetQuery(conn, query)
 
 ```
 
+```{r}
+query_step1 <- "
+SELECT 
+  p.Title,
+  p.Budget,
+  c.Country
+FROM Productions p
+JOIN Clients c ON p.ClientID = c.ClientID
+LIMIT 10
+"
+
+result_step1 <- dbGetQuery(conn, query_step1)
+result_step1
+```
+
