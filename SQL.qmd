@@ -35,8 +35,18 @@ if(!require("kableExtra"))
   install.packages("kableExtra")
   library(kableExtra)
 
+if(!require("ggplot2"))
+  install.packages("ggplot2")
+  library(ggplot2)
+
 conn <- dbConnect(RSQLite::SQLite(), "virtual_production.db")
 dbListTables(conn)
+
+```
+
+```{r}
+query <- "SELECT Budget FROM Productions"
+result <- dbGetQuery(conn, query)
 
 ```
 
