@@ -2,7 +2,7 @@ project:
   type: website
 
 website: 
-  title: "2023 - Quarto Examples"
+  title: "2025_DAIE_ICA_1"
   navbar: 
     left:
       - text: "SQL" 
