@@ -247,17 +247,15 @@ The following object is masked from 'package:graphics':
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plotly)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load ggthemes package</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"ggthemes"</span>))</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ggthemes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"ggthemes"</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"ggthemes"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: ggthemes</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggthemes)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># allows paginated tables</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"DT"</span>))</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"DT"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">require</span>(<span class="st">"DT"</span>))</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"DT"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: DT</code></pre>
 </div>
@@ -302,8 +300,8 @@ The following object is masked from 'package:dplyr':
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Core Query 1: Total budget and project count per country"</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-6bf25075423aae8377b1" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-6bf25075423aae8377b1">{"x":{"filter":"none","vertical":false,"caption":"<caption>Core Query 1: Total budget and project count per country<\/caption>","data":[["1","2","3"],["Germany","UK","Japan"],[950000,880000,770000],[2,2,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Country<\/th>\n      <th>TotalBudget<\/th>\n      <th>ProjectCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Country","targets":1},{"name":"TotalBudget","targets":2},{"name":"ProjectCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-a6b31678938631e3ea27" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-a6b31678938631e3ea27">{"x":{"filter":"none","vertical":false,"caption":"<caption>Core Query 1: Total budget and project count per country<\/caption>","data":[["1","2","3"],["Germany","UK","Japan"],[950000,880000,770000],[2,2,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Country<\/th>\n      <th>TotalBudget<\/th>\n      <th>ProjectCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Country","targets":1},{"name":"TotalBudget","targets":2},{"name":"ProjectCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>query_dev_time_assets <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH AssetCounts AS (</span></span>
@@ -346,8 +344,8 @@ The following object is masked from 'package:dplyr':
 <span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(result_dev_time_assets, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-4ce41e27fbe715a8b494" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-4ce41e27fbe715a8b494">{"x":{"filter":"none","vertical":false,"data":[["1"],["0–10"],[731],[6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AssetBucket<\/th>\n      <th>AvgDevelopmentDays<\/th>\n      <th>ProductionCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"AssetBucket","targets":1},{"name":"AvgDevelopmentDays","targets":2},{"name":"ProductionCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-2d737fc50786cbf95af0" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-2d737fc50786cbf95af0">{"x":{"filter":"none","vertical":false,"data":[["1"],["0–10"],[731],[6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AssetBucket<\/th>\n      <th>AvgDevelopmentDays<\/th>\n      <th>ProductionCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"AssetBucket","targets":1},{"name":"AvgDevelopmentDays","targets":2},{"name":"ProductionCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -375,8 +373,8 @@ The following object is masked from 'package:dplyr':
 <span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Core Query 3: Top 3 crew members by successful productions"</span></span>
 <span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-1574af692af6a21d96d1" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-1574af692af6a21d96d1">{"x":{"filter":"none","vertical":false,"caption":"<caption>Core Query 3: Top 3 crew members by successful productions<\/caption>","data":[["1","2","3"],["Reese A","Avery E","Jordan G"],[4,3,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>SuccessfulProductions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Name","targets":1},{"name":"SuccessfulProductions","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8bc74b887be7a4f6eb6d" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8bc74b887be7a4f6eb6d">{"x":{"filter":"none","vertical":false,"caption":"<caption>Core Query 3: Top 3 crew members by successful productions<\/caption>","data":[["1","2","3"],["Reese A","Avery E","Jordan G"],[4,3,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>SuccessfulProductions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Name","targets":1},{"name":"SuccessfulProductions","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -394,8 +392,8 @@ The following object is masked from 'package:dplyr':
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(result_like_or, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-ef3f08d18deb1a56160b" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-ef3f08d18deb1a56160b">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Eclipse Run","Quantum Drift"],["Sci-Fi","Adventure"],[350000,450000]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Title<\/th>\n      <th>Genre<\/th>\n      <th>Budget<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Title","targets":1},{"name":"Genre","targets":2},{"name":"Budget","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-c3ade669b6fd3fa396e4" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-c3ade669b6fd3fa396e4">{"x":{"filter":"none","vertical":false,"data":[["1","2"],["Eclipse Run","Quantum Drift"],["Sci-Fi","Adventure"],[350000,450000]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Title<\/th>\n      <th>Genre<\/th>\n      <th>Budget<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":3},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Title","targets":1},{"name":"Genre","targets":2},{"name":"Budget","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -412,8 +410,8 @@ The following object is masked from 'package:dplyr':
 <span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(result_distinct, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-58597146c3779c3987a7" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-58597146c3779c3987a7">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Canada","Germany","Japan","UK","USA"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Country<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Country","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-90228c18eeadc0577bff" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-90228c18eeadc0577bff">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5"],["Canada","Germany","Japan","UK","USA"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Country<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Country","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
@@ -431,8 +429,8 @@ The following object is masked from 'package:dplyr':
 <span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(result_subquery, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-3cb90e900359896cecf9" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-3cb90e900359896cecf9">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Gravity Dreams","Starborn Legacy","Quantum Drift"],[600000,500000,450000]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Title<\/th>\n      <th>Budget<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Title","targets":1},{"name":"Budget","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-fe71a3a37f5d88222abb" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-fe71a3a37f5d88222abb">{"x":{"filter":"none","vertical":false,"data":[["1","2","3"],["Gravity Dreams","Starborn Legacy","Quantum Drift"],[600000,500000,450000]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Title<\/th>\n      <th>Budget<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Title","targets":1},{"name":"Budget","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 

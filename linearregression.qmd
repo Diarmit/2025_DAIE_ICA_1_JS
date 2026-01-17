@@ -3,3 +3,107 @@ title: "Linear Regression"
 author: "JS"
 ---
 Linear Regression
+
+```{r}
+# add libraries
+library(DBI)
+library(RSQLite)
+library(dplyr)
+library(ggplot2)
+
+# connect to the virtual production db
+con <- dbConnect(SQLite(), "virtual_production.db")
+
+```
+
+```{r}
+productions     <- dbReadTable(con, "Productions")
+sessions        <- dbReadTable(con, "ShootingSessions")
+production_crew <- dbReadTable(con, "ProductionCrew")
+
+workload_per_prod <- sessions |>
+  group_by(ProductionID) |>
+  summarise(
+    ActualWorkload = sum(DurationHours, na.rm = TRUE)
+  )
+
+productions_dates <- productions |>
+  mutate(
+    StartDate        = as.Date(StartDate),
+    EndDate          = as.Date(EndDate),
+    ExpectedDuration = as.numeric(EndDate - StartDate)
+  )
+
+crewsize_per_prod <- production_crew |>
+  group_by(ProductionID) |>
+  summarise(
+    CrewSize = n_distinct(CrewID)
+  )
+
+prod_data <- productions_dates |>
+  left_join(workload_per_prod, by = "ProductionID") |>
+  left_join(crewsize_per_prod,   by = "ProductionID")
+
+```
+
+## successRate and clean
+
+```{r}
+reg_data <- prod_data |>
+  mutate(
+    SuccessRate = ExpectedDuration / ActualWorkload
+  ) |>
+  select(ProductionID, Budget, CrewSize,
+         ExpectedDuration, ActualWorkload, SuccessRate) |>
+  filter(
+    !is.na(Budget),
+    !is.na(CrewSize),
+    !is.na(SuccessRate),
+    ActualWorkload > 0,
+    ExpectedDuration > 0
+  )
+
+head(reg_data)
+
+```
+
+## fit linear regression
+
+```{r}
+lm_model <- lm(SuccessRate ~ Budget + CrewSize, data = reg_data)
+summary(lm_model)
+
+```
+
+## plot relationships with regression lines
+
+```{r}
+ggplot(reg_data, aes(x = Budget, y = SuccessRate)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, colour = "blue") +
+  labs(
+    title = "Success rate vs budget",
+    x = "Budget",
+    y = "Success rate (ExpectedDuration / ActualWorkload)"
+  )
+
+ggplot(reg_data, aes(x = CrewSize, y = SuccessRate)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(method = "lm", se = TRUE, colour = "darkgreen") +
+  labs(
+    title = "Success rate vs crew size",
+    x = "Crew size",
+    y = "Success rate (ExpectedDuration / ActualWorkload)"
+  )
+
+```
+
+##diagnostics
+
+```{r}
+plot(lm_model, which = 1)
+plot(lm_model, which = 2)
+
+```
+
+
