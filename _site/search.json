@@ -40,5 +40,12 @@
     "title": "SQL",
     "section": "Core Query 3: Top Crew Members",
     "text": "Core Query 3: Top Crew Members\nLists the top three crew members by number of successful (completed) productions."
+  },
+  {
+    "objectID": "SQL.html#sql-concept-1-like-and-or",
+    "href": "SQL.html#sql-concept-1-like-and-or",
+    "title": "SQL",
+    "section": "SQL Concept 1: LIKE and OR",
+    "text": "SQL Concept 1: LIKE and OR\nFind productions with titles containing “Run” or “Drift”.\n\n# Using LIKE to search for text patterns, OR to combine conditions\nquery_like_or &lt;- \"\nSELECT Title, Genre, Budget\nFROM Productions\nWHERE Title LIKE '%Run%' OR Title LIKE '%Drift%'\nORDER BY Title;\n\"\n\nresult_like_or &lt;- dbGetQuery(conn, query_like_or)\n\nDT::datatable(result_like_or, options = list(pageLength = 10))"
   }
 ]

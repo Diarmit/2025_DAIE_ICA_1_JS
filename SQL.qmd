@@ -129,3 +129,21 @@ DT::datatable(
   caption = "Core Query 3: Top 3 crew members by successful productions"
 )
 ```
+
+## SQL Concept 1: LIKE and OR
+
+Find productions with titles containing "Run" or "Drift".
+
+```{r}
+# Using LIKE to search for text patterns, OR to combine conditions
+query_like_or <- "
+SELECT Title, Genre, Budget
+FROM Productions
+WHERE Title LIKE '%Run%' OR Title LIKE '%Drift%'
+ORDER BY Title;
+"
+
+result_like_or <- dbGetQuery(conn, query_like_or)
+
+DT::datatable(result_like_or, options = list(pageLength = 10))
+```
