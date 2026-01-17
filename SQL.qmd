@@ -51,28 +51,67 @@ result <- dbGetQuery(conn, query)
 ```
 
 ```{r}
-query_step1 <- "
-SELECT 
-  p.Title,
-  p.Budget,
-  c.Country
-FROM Productions p
-JOIN Clients c ON p.ClientID = c.ClientID
-LIMIT 10
+query_core1 <- "SELECT c.Country, SUM(p.Budget) AS TotalBudget, COUNT(*) AS ProjectCount FROM Productions p JOIN Clients c ON p.ClientID = c.ClientID GROUP BY c.Country ORDER BY TotalBudget DESC;"
+```
+
+```{r}
+result_core1 <- dbGetQuery(conn, query_core1)
+
+DT::datatable(
+  result_core1,
+  options = list(pageLength = 10),
+  caption = "Core Query 1: Total budget and project count per country"
+)
+```
+
+
+```{r}
+# Core Query 2: Average development time grouped by number of assets used
+
+query_dev_time_assets <- "
+WITH AssetCounts AS (
+  SELECT
+    e.ProductionID,
+    COUNT(a.AssetID) AS AssetCount
+  FROM Environments e
+  LEFT JOIN Assets a ON a.EnvironmentID = e.EnvironmentID
+  GROUP BY e.ProductionID
+),
+ProductionDevTime AS (
+  SELECT
+    p.ProductionID,
+    (julianday(p.EndDate) - julianday(p.StartDate)) AS DevDays,
+    COALESCE(ac.AssetCount, 0) AS AssetCount
+  FROM Productions p
+  LEFT JOIN AssetCounts ac ON ac.ProductionID = p.ProductionID
+)
+SELECT
+  CASE
+    WHEN AssetCount <= 10 THEN '0–10'
+    WHEN AssetCount <= 50 THEN '11–50'
+    WHEN AssetCount <= 100 THEN '51–100'
+    ELSE '100+'
+  END AS AssetBucket,
+  AVG(DevDays) AS AvgDevelopmentDays,
+  COUNT(*) AS ProductionCount
+FROM ProductionDevTime
+GROUP BY AssetBucket
+ORDER BY
+  CASE AssetBucket
+    WHEN '0–10' THEN 1
+    WHEN '11–50' THEN 2
+    WHEN '51–100' THEN 3
+    ELSE 4
+  END;
 "
 
-result_step1 <- dbGetQuery(conn, query_step1)
-result_step1
-```
-```{r}
-SELECT
-  c.Country,
-  SUM(p.Budget) AS TotalBudget,
-  COUNT(p.ProductionID) AS ProjectCount
-FROM Productions p
-JOIN Clients c ON c.ClientID = p.ClientID
-GROUP BY c.Country
-ORDER BY TotalBudget DESC;
+result_dev_time_assets <- dbGetQuery(conn, query_dev_time_assets)
 
+DT::datatable(result_dev_time_assets, options = list(pageLength = 10))
+
+```
+
+```{r}
+query_core1 <- "SELECT c.Country, SUM(p.Budget) AS TotalBudget, COUNT(*) AS ProjectCount FROM Productions p JOIN Clients c ON p.ClientID = c.ClientID GROUP BY c.Country ORDER BY TotalBudget DESC;"
 ```
 
