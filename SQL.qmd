@@ -2,7 +2,8 @@
 title: "SQL"
 author: "JS"
 ---
-SQL libraries and connections 
+## SQL libraries and connections 
+
 ```{r}
 if(!require("tidyverse"))
   install.packages("tidyverse")
@@ -21,12 +22,10 @@ if(!require("plotly"))
   install.packages("plotly")
 library(plotly)
 
-# support for color blind users - see scale_color_colorblind() below
 if(!require("ggthemes"))
   install.packages("ggthemes")
 library(ggthemes)
 
-# allows paginated tables
 if(!require("DT"))
   install.packages("DT")
 library(DT)
@@ -44,7 +43,6 @@ dbListTables(conn)
 
 ```
 ## Core Query 1: Budget by Country
-Joins Productions and Clients, sums budgets and counts projects by country.
 
 ```{r}
 query_core1 <- "SELECT c.Country, SUM(p.Budget) AS TotalBudget, COUNT(*) AS ProjectCount FROM Productions p JOIN Clients c ON p.ClientID = c.ClientID GROUP BY c.Country ORDER BY TotalBudget DESC;"
@@ -105,8 +103,6 @@ DT::datatable(result_dev_time_assets, options = list(pageLength = 10))
 
 ## Core Query 3: Top Crew Members
 
-Lists the top three crew members by number of successful (completed) productions.
-
 ```{r}
 query_core3 <- "
 SELECT 
@@ -132,10 +128,7 @@ DT::datatable(
 
 ## SQL Concept 1: LIKE and OR
 
-Find productions with titles containing "Run" or "Drift".
-
 ```{r}
-# Using LIKE to search for text patterns, OR to combine conditions
 query_like_or <- "
 SELECT Title, Genre, Budget
 FROM Productions
@@ -147,3 +140,34 @@ result_like_or <- dbGetQuery(conn, query_like_or)
 
 DT::datatable(result_like_or, options = list(pageLength = 10))
 ```
+
+## 2. SELECT with DISTINCT and ORDER BY
+
+```{r}
+query_distinct <- "
+SELECT DISTINCT Country
+FROM Clients
+ORDER BY Country;
+"
+
+result_distinct <- dbGetQuery(conn, query_distinct)
+
+DT::datatable(result_distinct, options = list(pageLength = 10))
+```
+
+## 3. Subquery with SELECT
+
+```{r}
+query_subquery <- "
+SELECT Title, Budget
+FROM Productions
+WHERE Budget > (SELECT AVG(Budget) FROM Productions)
+ORDER BY Budget DESC;
+"
+
+result_subquery <- dbGetQuery(conn, query_subquery)
+
+DT::datatable(result_subquery, options = list(pageLength = 10))
+```
+
+
