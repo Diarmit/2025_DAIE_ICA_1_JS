@@ -64,4 +64,15 @@ LIMIT 10
 result_step1 <- dbGetQuery(conn, query_step1)
 result_step1
 ```
+```{r}
+SELECT
+  c.Country,
+  SUM(p.Budget) AS TotalBudget,
+  COUNT(p.ProductionID) AS ProjectCount
+FROM Productions p
+JOIN Clients c ON c.ClientID = p.ClientID
+GROUP BY c.Country
+ORDER BY TotalBudget DESC;
+
+```
 
