@@ -99,8 +99,33 @@ result_dev_time_assets <- dbGetQuery(conn, query_dev_time_assets)
 DT::datatable(result_dev_time_assets, options = list(pageLength = 10))
 
 ```
-This following query joins Productions and Clients, then groups by country to sum budgets and count projects. The USA leads with $3M across 5 projects, followed by the UK at $2M. 
 ```{r}
-query_core1 <- "SELECT c.Country, SUM(p.Budget) AS TotalBudget, COUNT(*) AS ProjectCount FROM Productions p JOIN Clients c ON p.ClientID = c.ClientID GROUP BY c.Country ORDER BY TotalBudget DESC;"
+
 ```
 
+## Core Query 3: Top Crew Members
+
+Lists the top three crew members by number of successful (completed) productions.
+
+```{r}
+query_core3 <- "
+SELECT 
+  cm.Name,
+  COUNT(*) AS SuccessfulProductions
+FROM CrewMembers cm
+JOIN ProductionCrew pc ON cm.CrewID = pc.CrewID
+JOIN Productions p ON pc.ProductionID = p.ProductionID
+WHERE p.EndDate IS NOT NULL
+GROUP BY cm.CrewID, cm.Name
+ORDER BY SuccessfulProductions DESC
+LIMIT 3;
+"
+
+result_core3 <- dbGetQuery(conn, query_core3)
+
+DT::datatable(
+  result_core3,
+  options = list(pageLength = 10),
+  caption = "Core Query 3: Top 3 crew members by successful productions"
+)
+```

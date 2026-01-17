@@ -301,8 +301,8 @@ The following object is masked from 'package:dplyr':
 <span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Core Query 1: Total budget and project count per country"</span></span>
 <span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-b61e5387d032b4566eb2" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-b61e5387d032b4566eb2">{"x":{"filter":"none","vertical":false,"caption":"<caption>Core Query 1: Total budget and project count per country<\/caption>","data":[["1","2","3"],["Germany","UK","Japan"],[950000,880000,770000],[2,2,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Country<\/th>\n      <th>TotalBudget<\/th>\n      <th>ProjectCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Country","targets":1},{"name":"TotalBudget","targets":2},{"name":"ProjectCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-4988f198a2e574483487" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-4988f198a2e574483487">{"x":{"filter":"none","vertical":false,"caption":"<caption>Core Query 1: Total budget and project count per country<\/caption>","data":[["1","2","3"],["Germany","UK","Japan"],[950000,880000,770000],[2,2,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Country<\/th>\n      <th>TotalBudget<\/th>\n      <th>ProjectCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Country","targets":1},{"name":"TotalBudget","targets":2},{"name":"ProjectCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>query_dev_time_assets <span class="ot">&lt;-</span> <span class="st">"</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">WITH AssetCounts AS (</span></span>
@@ -345,13 +345,39 @@ The following object is masked from 'package:dplyr':
 <span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(result_dev_time_assets, <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-c310fd5caaaaf994822e" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-c310fd5caaaaf994822e">{"x":{"filter":"none","vertical":false,"data":[["1"],["0–10"],[731],[6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AssetBucket<\/th>\n      <th>AvgDevelopmentDays<\/th>\n      <th>ProductionCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"AssetBucket","targets":1},{"name":"AvgDevelopmentDays","targets":2},{"name":"ProductionCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+<div class="datatables html-widget html-fill-item" id="htmlwidget-368564a696c3afe4c266" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-368564a696c3afe4c266">{"x":{"filter":"none","vertical":false,"data":[["1"],["0–10"],[731],[6]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>AssetBucket<\/th>\n      <th>AvgDevelopmentDays<\/th>\n      <th>ProductionCount<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":[2,3]},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"AssetBucket","targets":1},{"name":"AvgDevelopmentDays","targets":2},{"name":"ProductionCount","targets":3}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
-<p>This following query joins Productions and Clients, then groups by country to sum budgets and count projects. The USA leads with $3M across 5 projects, followed by the UK at $2M.</p>
+</section>
+<section id="core-query-3-top-crew-members" class="level2">
+<h2 class="anchored" data-anchor-id="core-query-3-top-crew-members">Core Query 3: Top Crew Members</h2>
+<p>Lists the top three crew members by number of successful (completed) productions.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>query_core1 <span class="ot">&lt;-</span> <span class="st">"SELECT c.Country, SUM(p.Budget) AS TotalBudget, COUNT(*) AS ProjectCount FROM Productions p JOIN Clients c ON p.ClientID = c.ClientID GROUP BY c.Country ORDER BY TotalBudget DESC;"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>query_core3 <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="st">SELECT </span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="st">  cm.Name,</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="st">  COUNT(*) AS SuccessfulProductions</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="st">FROM CrewMembers cm</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="st">JOIN ProductionCrew pc ON cm.CrewID = pc.CrewID</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="st">JOIN Productions p ON pc.ProductionID = p.ProductionID</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="st">WHERE p.EndDate IS NOT NULL</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="st">GROUP BY cm.CrewID, cm.Name</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="st">ORDER BY SuccessfulProductions DESC</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="st">LIMIT 3;</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>result_core3 <span class="ot">&lt;-</span> <span class="fu">dbGetQuery</span>(conn, query_core3)</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>DT<span class="sc">::</span><span class="fu">datatable</span>(</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  result_core3,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">options =</span> <span class="fu">list</span>(<span class="at">pageLength =</span> <span class="dv">10</span>),</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">"Core Query 3: Top 3 crew members by successful productions"</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-280f00e2a9df406b0212" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-280f00e2a9df406b0212">{"x":{"filter":"none","vertical":false,"caption":"<caption>Core Query 3: Top 3 crew members by successful productions<\/caption>","data":[["1","2","3"],["Reese A","Avery E","Jordan G"],[4,3,2]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>Name<\/th>\n      <th>SuccessfulProductions<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":10,"columnDefs":[{"className":"dt-right","targets":2},{"orderable":false,"targets":0},{"name":" ","targets":0},{"name":"Name","targets":1},{"name":"SuccessfulProductions","targets":2}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 
 
