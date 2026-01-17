@@ -2,7 +2,7 @@
 title: "SQL"
 author: "JS"
 ---
-SQL
+SQL libraries and connections 
 ```{r}
 if(!require("tidyverse"))
   install.packages("tidyverse")
@@ -43,18 +43,12 @@ conn <- dbConnect(RSQLite::SQLite(), "virtual_production.db")
 dbListTables(conn)
 
 ```
-
-```{r}
-query <- "SELECT Budget FROM Productions"
-result <- dbGetQuery(conn, query)
-
-```
+## Core Query 1: Budget by Country
+Joins Productions and Clients, sums budgets and counts projects by country.
 
 ```{r}
 query_core1 <- "SELECT c.Country, SUM(p.Budget) AS TotalBudget, COUNT(*) AS ProjectCount FROM Productions p JOIN Clients c ON p.ClientID = c.ClientID GROUP BY c.Country ORDER BY TotalBudget DESC;"
-```
 
-```{r}
 result_core1 <- dbGetQuery(conn, query_core1)
 
 DT::datatable(
@@ -62,11 +56,6 @@ DT::datatable(
   options = list(pageLength = 10),
   caption = "Core Query 1: Total budget and project count per country"
 )
-```
-
-
-```{r}
-# Core Query 2: Average development time grouped by number of assets used
 
 query_dev_time_assets <- "
 WITH AssetCounts AS (
@@ -110,7 +99,7 @@ result_dev_time_assets <- dbGetQuery(conn, query_dev_time_assets)
 DT::datatable(result_dev_time_assets, options = list(pageLength = 10))
 
 ```
-
+This following query joins Productions and Clients, then groups by country to sum budgets and count projects. The USA leads with $3M across 5 projects, followed by the UK at $2M. 
 ```{r}
 query_core1 <- "SELECT c.Country, SUM(p.Budget) AS TotalBudget, COUNT(*) AS ProjectCount FROM Productions p JOIN Clients c ON p.ClientID = c.ClientID GROUP BY c.Country ORDER BY TotalBudget DESC;"
 ```
