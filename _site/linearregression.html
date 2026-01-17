@@ -346,6 +346,18 @@ F-statistic: 0.3025 on 2 and 3 DF,  p-value: 0.7591</code></pre>
 </div>
 </div>
 </div>
+</section>
+<section id="data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation">Data preparation</h2>
+<p>Data analysed at production level, combining the Productions, ShootingSessions, and ProductionCrew tables from the production.db. For each production, I summed DurationHours across all sessions to get ActualWorkload, processed ExpectedDuration as the number of days between StartDate and EndDate, and counted distinct crew members to get CrewSize. I then defined SuccessRate = ExpectedDuration / ActualWorkload and filtered out rows with missing values or non‑positive workloads or durations.</p>
+</section>
+<section id="model-results" class="level2">
+<h2 class="anchored" data-anchor-id="model-results">Model results</h2>
+<p>I fitted a multiple linear regression model with SuccessRate as the response and Budget and CrewSize as predictors. Both predictors have high p‑values, and the coefficient for Budget is close to zero, so neither variable shows a statistically significant linear effect on success rate in this dataset.</p>
+</section>
+<section id="model-reliability" class="level2">
+<h2 class="anchored" data-anchor-id="model-reliability">Model reliability</h2>
+<p>With only six productions, the residual and Q‑Q plots show that individual points have a strong influence and the linear assumptions are only roughly met.</p>
 
 
 </section>

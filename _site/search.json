@@ -96,5 +96,26 @@
     "title": "Linear Regression",
     "section": "plot relationships with regression lines",
     "text": "plot relationships with regression lines\n\nggplot(reg_data, aes(x = Budget, y = SuccessRate)) +\n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = TRUE, colour = \"blue\") +\n  labs(\n    title = \"Success rate vs budget\",\n    x = \"Budget\",\n    y = \"Success rate (ExpectedDuration / ActualWorkload)\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\nggplot(reg_data, aes(x = CrewSize, y = SuccessRate)) +\n  geom_point(alpha = 0.7) +\n  geom_smooth(method = \"lm\", se = TRUE, colour = \"darkgreen\") +\n  labs(\n    title = \"Success rate vs crew size\",\n    x = \"Crew size\",\n    y = \"Success rate (ExpectedDuration / ActualWorkload)\"\n  )\n\n`geom_smooth()` using formula = 'y ~ x'\n\n\n\n\n\n\n\n\n\n##diagnostics\n\nplot(lm_model, which = 1)\n\n\n\n\n\n\n\nplot(lm_model, which = 2)"
+  },
+  {
+    "objectID": "linearregression.html#data-preparation",
+    "href": "linearregression.html#data-preparation",
+    "title": "Linear Regression",
+    "section": "Data preparation",
+    "text": "Data preparation\nData analysed at production level, combining the Productions, ShootingSessions, and ProductionCrew tables from the production.db. For each production, I summed DurationHours across all sessions to get ActualWorkload, processed ExpectedDuration as the number of days between StartDate and EndDate, and counted distinct crew members to get CrewSize. I then defined SuccessRate = ExpectedDuration / ActualWorkload and filtered out rows with missing values or non‑positive workloads or durations."
+  },
+  {
+    "objectID": "linearregression.html#model-results",
+    "href": "linearregression.html#model-results",
+    "title": "Linear Regression",
+    "section": "Model results",
+    "text": "Model results\nI fitted a multiple linear regression model with SuccessRate as the response and Budget and CrewSize as predictors. Both predictors have high p‑values, and the coefficient for Budget is close to zero, so neither variable shows a statistically significant linear effect on success rate in this dataset."
+  },
+  {
+    "objectID": "linearregression.html#model-reliability",
+    "href": "linearregression.html#model-reliability",
+    "title": "Linear Regression",
+    "section": "Model reliability",
+    "text": "Model reliability\nWith only six productions, the residual and Q‑Q plots show that individual points have a strong influence and the linear assumptions are only roughly met."
   }
 ]
