@@ -1,6 +1,6 @@
 ---
 title: "Linear Regression"
-author: "JS"
+author: "Jeremiah Spillane - d00295490"
 ---
 Linear Regression
 

@@ -1,5 +1,7 @@
 ---
 title: "Technology Exploration"
-author: "JS"
+author: "Jeremiah Spillane - d00295490"
 ---
 Technology Exploration
+
+This whole assignment was a new workflow for me, very challenging but became a really useful learning exercise. This was not somethign I could do unaided, so I leaned heavily on the assignment brief and on the Quarto demo materials in nmcguinness’s GitHub repo https://github.com/nmcguinness/2023_MSC_DataAnalytics_Quarto_Demo, in particular the introductory Quarto example, 2_Interactive_Plots_With_Plotly.qmd, and 3_LinearRegression.qmd. I also made regular use of general online references such as https://www.geeksforgeeks.org/, the SQLite Viewer at https://inloop.github.io/sqlite-viewer/, and tutorials on https://www.w3schools.com/, and I queried Perplexity.ai for help with specific SQL, R, and Quarto questions. Combining these resources step‑by‑step helped me learn how to connect R to the SQLite database, organise a Quarto website, and implement the required plots and regression, so by the end I felt more confident about the overall data analytics workflow... i would need quite a bit more practice to get fluid/fluent with this kind of workflow. I can certainly see the value and utility of it though. 

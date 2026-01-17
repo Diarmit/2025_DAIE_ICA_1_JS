@@ -1,6 +1,6 @@
 ---
 title: "SQL"
-author: "JS"
+author: "Jeremiah Spillane - d00295490"
 ---
 ## SQL libraries and connections 
 
